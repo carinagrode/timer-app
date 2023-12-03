@@ -54,7 +54,7 @@ function displayTimer() {
                     console.log('Ready');
                     clearInterval(intervalId);
                     alarm.play();
-                    display.style.backgroundColor = 'red';
+                    display.style.backgroundImage = 'url("power-move-square.gif")';
                 }
     
             }, 1000);
