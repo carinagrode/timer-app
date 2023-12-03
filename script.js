@@ -25,6 +25,9 @@ function displayTimer() {
             let twoMinutes = 1000 * 60 * 2;
             let endTime = startTime + twoMinutes;
 
+            timerDisplay.remove();
+            button.remove();
+
             intervalId = setInterval(function() {
                 let timeLeft = endTime - new Date().getTime();
     
