@@ -27,6 +27,14 @@ function displayTimer() {
 
             timerDisplay.remove();
             button.remove();
+            
+            display.style.backgroundColor = 'blue';
+
+            let waterBottleAir = document.createElement('div');
+            display.appendChild(waterBottleAir);
+            waterBottleAir.style.width = '100vw';
+            waterBottleAir.style.height = '100vh';
+            waterBottleAir.style.backgroundColor = 'beige';
 
             intervalId = setInterval(function() {
                 let timeLeft = endTime - new Date().getTime();
@@ -36,11 +44,8 @@ function displayTimer() {
                     seconds = Math.round(seconds);
                     console.log(seconds);
 
-                    let box = document.createElement('div');
-                    display.appendChild(box);
-                    box.style.width = '40px';
-                    box.style.height = '40px';
-                    box.style.backgroundColor = 'pink';
+                    let currentHeight = parseFloat(waterBottleAir.style.height);
+                    waterBottleAir.style.height = `${currentHeight - (100 / 120)}vh`;
         
                 } else {
                     console.log('Ready');
