@@ -1,4 +1,7 @@
 #display {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
 }
