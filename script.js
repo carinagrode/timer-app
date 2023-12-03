@@ -32,6 +32,12 @@ function displayTimer() {
                     let seconds = timeLeft / 1000;
                     seconds = Math.round(seconds);
                     console.log(seconds);
+
+                    let box = document.createElement('div');
+                    display.appendChild(box);
+                    box.style.width = '40px';
+                    box.style.height = '40px';
+                    box.style.backgroundColor = 'pink';
         
                 } else {
                     console.log('Ready');
