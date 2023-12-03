@@ -5,13 +5,14 @@ window.addEventListener('load', displayTimer);
 
 
 function displayTimer() {
-    const timerDisplay = document.createElement('p');
-    timerDisplay.textContent = '2:00';
-    display.appendChild(timerDisplay);
 
     const button = document.createElement('button');
     button.textContent = 'Start';
     display.appendChild(button);
+
+    display.style.display = 'flex';
+    display.style.justifyContent = 'center';
+    display.style.alignItems = 'center';
 
     button.addEventListener('click', startTimer);
 
@@ -22,11 +23,12 @@ function displayTimer() {
     function startTimer() {
 
         if(!timerStarted) {
+
+            display.style.display = '';
             let startTime = new Date().getTime();
             let twoMinutes = 1000 * 60 * 2;
             let endTime = startTime + twoMinutes;
 
-            timerDisplay.remove();
             button.remove();
             
             display.style.backgroundColor = 'blue';
