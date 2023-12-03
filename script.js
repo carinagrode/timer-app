@@ -15,6 +15,7 @@ function displayTimer() {
 
     button.addEventListener('click', startTimer);
 
+    let alarm = new Audio('yeah-super-gemacht.mp3');
     let timerStarted = false;
     let intervalId;
 
@@ -50,6 +51,8 @@ function displayTimer() {
                 } else {
                     console.log('Ready');
                     clearInterval(intervalId);
+                    alarm.play();
+                    display.style.backgroundColor = 'red';
                 }
     
             }, 1000);
