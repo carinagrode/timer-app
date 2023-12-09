@@ -3,7 +3,7 @@ const display = document.getElementById('display');
 const button = document.querySelector('button');
 button.addEventListener('click', startTimer);
 
-let alarm = new Audio('yeah-super-gemacht.mp3');
+// let alarm = new Audio('yeah-super-gemacht.mp3');
 let timerStarted = false;
 let intervalId;
 
@@ -44,7 +44,18 @@ function startTimer() {
                 } else {
                     console.log('Ready');
                     clearInterval(intervalId);
-                    alarm.play();
+                    // alarm.play();
+
+                    let context = new (window.AudioContext || window.webkitAudioContext)();
+                    let alarm = new AudioBufferSourceNode(context);
+                    fetch('yeah-super-gemacht.mp3')
+                        .then(response => response.arrayBuffer())
+                        .then(data => context.decodeAudioData(data))
+                        .then(buffer => {
+                            alarm.buffer = buffer;
+                            alarm.connect(context.destination);
+                        });
+                    alarm.start(0);
                     display.style.backgroundImage = 'url("power-move-square.gif")';
                 }
 
