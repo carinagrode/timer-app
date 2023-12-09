@@ -8,6 +8,9 @@
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
